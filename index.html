@@ -1,285 +1,788 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ester Numbre | Junior Web Developer</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ester Numbre — Junior Web Developer & Graphic Designer dari Jayapura, Papua. Spesialis HTML, CSS, JavaScript, dan desain identitas visual untuk produk lokal." />
+  <meta name="keywords" content="Ester Numbre, web developer Papua, graphic designer Jayapura, junior web developer, portfolio" />
+  <meta name="author" content="Ester Numbre" />
+  <meta property="og:title" content="Ester Numbre | Web Developer & Designer" />
+  <meta property="og:description" content="Portfolio Ester Numbre — solusi digital responsif untuk produk lokal Papua." />
+  <meta property="og:image" content="https://esternumbre.github.io/images/Profile2.jpeg" />
+  <meta property="og:url" content="https://esternumbre.github.io" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://esternumbre.github.io/" />
 
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #0a0a0a;
-            color: #ffffff;
-        }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ester Numbre",
+    "jobTitle": "Junior Web Developer & Graphic Designer",
+    "url": "https://esternumbre.github.io",
+    "address": { "@type": "PostalAddress", "addressLocality": "Kota Jayapura", "addressRegion": "Papua", "addressCountry": "ID" },
+    "sameAs": ["https://github.com/esternumbre","https://linkedin.com/in/esternumbre"]
+  }
+  </script>
 
-        .text-accent { color: #facc15; } /* Kuning/Yellow-400 */
-        .bg-accent { background-color: #facc15; }
-        .border-accent { border-color: #facc15; }
+  <title>Ester Numbre | Junior Web Developer & Designer — Jayapura, Papua</title>
 
-        .nav-transition {
-            transition: all 0.4s ease-in-out;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
 
-        .nav-solid {
-            background-color: rgba(10, 10, 10, 0.95);
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(250, 204, 21, 0.2);
-            backdrop-filter: blur(10px);
-        }
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; }
+    ul { list-style: none; }
 
-        .btn-primary {
-            @apply bg-yellow-400 text-black font-bold py-3 px-8 rounded-full transition-all duration-300 hover:bg-white hover:shadow-[0_0_20px_rgba(250,204,21,0.5)];
-        }
+    :root {
+      /* Dark surfaces — warm near-black */
+      --dark:        #16120e;
+      --dark-mid:    #1f1912;
+      --dark-card:   #261e15;
+      --dark-border: #372e22;
+      --dark-muted:  #9a8878;
 
-        .btn-outline {
-            @apply border-2 border-yellow-400 text-yellow-400 font-bold py-3 px-8 rounded-full transition-all duration-300 hover:bg-yellow-400 hover:text-black;
-        }
+      /* Light surfaces — unchanged */
+      --paper:  #f7f4ef;
+      --cream:  #ede9e2;
+      --ink:    #1a1a1a;
+      --muted:  #6b6560;
+      --border: #d9d3ca;
+      --white:  #ffffff;
 
-        .skill-progress {
-            height: 8px;
-            background: #1a1a1a;
-            border-radius: 4px;
-            overflow: hidden;
-        }
+      /* Accent — terakota, never changes */
+      --accent:      #c0622a;
+      --accent-lit:  #e8845a;
+      --accent-dim:  rgba(192, 98, 42, 0.14);
+      --accent-glow: rgba(192, 98, 42, 0.22);
 
-        .skill-bar {
-            height: 100%;
-            background: #facc15;
-            transition: width 1.5s ease-in-out;
-        }
+      --fd: 'DM Serif Display', serif;
+      --fb: 'DM Sans', sans-serif;
+      --r:  4px;
+      --rl: 12px;
+      --tr: 0.25s ease;
+    }
 
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-        }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--fb); background: var(--paper); color: var(--ink); line-height: 1.7; font-size: 16px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--r); }
 
-        .project-overlay {
-            background: rgba(0, 0, 0, 0.8);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+    /* ════════════════════════════
+       NAV — dark
+    ════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(22, 18, 14, 0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--dark-border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo { font-family: var(--fd); font-size: 1.4rem; color: var(--white); letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--accent); }
 
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      color: var(--dark-muted); font-size: 0.875rem; font-weight: 500;
+      letter-spacing: 0.03em; transition: color var(--tr);
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent-lit); }
 
-        input, textarea {
-            background: #1a1a1a !important;
-            border: 1px solid #333 !important;
-            color: white !important;
-        }
+    .nav-social { display: flex; gap: 0.75rem; align-items: center; }
+    .nav-social a {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid var(--dark-border); color: var(--dark-muted);
+      transition: all var(--tr);
+    }
+    .nav-social a:hover { background: var(--accent); border-color: var(--accent); color: var(--white); }
 
-        input:focus, textarea:focus {
-            border-color: #facc15 !important;
-            outline: none;
-        }
-    </style>
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,0.7); transition: var(--tr); }
+
+    /* ════════════════════════════
+       HERO — dark with warm glow
+    ════════════════════════════ */
+    #home-wrap { background: var(--dark); position: relative; overflow: hidden; }
+
+    /* Radial warm accent glow — subtle, not gradient */
+    #home-wrap::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 55%; height: 100%;
+      background: radial-gradient(ellipse 60% 70% at 80% 40%, rgba(192,98,42,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    #home-wrap::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 45%; height: 60%;
+      background: radial-gradient(ellipse 50% 60% at 20% 100%, rgba(192,98,42,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    #home {
+      min-height: 100vh; padding: 100px 5% 80px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      max-width: 1200px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-lit);
+      margin-bottom: 1.25rem; padding: 5px 14px;
+      background: rgba(192,98,42,0.1); border: 1px solid rgba(192,98,42,0.22);
+      border-radius: 100px;
+    }
+    .hero-title {
+      font-family: var(--fd); font-size: clamp(2.8rem, 5vw, 4.6rem);
+      line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 1.25rem; color: var(--white);
+    }
+    .hero-title .italic { font-style: italic; color: var(--accent-lit); }
+
+    .hero-sub { font-size: 1rem; color: var(--dark-muted); margin-bottom: 2.5rem; max-width: 400px; line-height: 1.8; }
+
+    .hero-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.4rem; border-radius: var(--r);
+      font-family: var(--fb); font-size: 0.875rem; font-weight: 500;
+      cursor: pointer; transition: all var(--tr); border: 1.5px solid transparent;
+    }
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-primary:hover { background: #a8521f; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(192,98,42,0.38); }
+
+    .btn-ghost { background: transparent; color: rgba(255,255,255,0.65); border-color: rgba(255,255,255,0.14); }
+    .btn-ghost:hover { border-color: var(--accent-lit); color: var(--accent-lit); transform: translateY(-2px); }
+
+    .btn-outline { background: transparent; color: var(--ink); border-color: var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    /* Stats strip */
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 2.5rem;
+      padding-top: 2rem; border-top: 1px solid var(--dark-border);
+    }
+    .stat-num { font-family: var(--fd); font-size: 1.85rem; color: var(--white); letter-spacing: -0.03em; line-height: 1; }
+    .stat-lbl { font-size: 0.73rem; color: var(--dark-muted); margin-top: 3px; letter-spacing: 0.04em; }
+
+    /* Hero image */
+    .hero-image-wrap { display: flex; justify-content: center; align-items: center; }
+    .hero-img-frame { position: relative; width: 300px; height: 370px; }
+    .hero-img-frame::before {
+      content: ''; position: absolute; inset: -12px -12px 12px 12px;
+      border: 1.5px solid rgba(192,98,42,0.35); border-radius: var(--rl);
+    }
+    .hero-img-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--rl); }
+
+    .hero-badge {
+      position: absolute; bottom: -20px; left: -20px;
+      background: var(--dark-card); border: 1px solid var(--dark-border);
+      border-radius: var(--rl); padding: 11px 15px;
+      display: flex; align-items: center; gap: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .badge-dot { width: 7px; height: 7px; background: #4ade80; border-radius: 50%; animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+    .hero-badge span { font-size: 0.76rem; font-weight: 500; color: var(--dark-muted); }
+
+    /* ════════════════════════════
+       SHARED SECTION
+    ════════════════════════════ */
+    section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; display: block;
+    }
+    .section-label.on-dark { color: var(--accent-lit); }
+
+    .section-title {
+      font-family: var(--fd); font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      line-height: 1.1; letter-spacing: -0.022em; margin-bottom: 0.75rem;
+    }
+    .section-title.on-dark { color: var(--white); }
+    .section-divider { width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 2.5rem; }
+
+    /* ════════════════════════════
+       ABOUT — light cream
+    ════════════════════════════ */
+    #about-wrap { background: var(--cream); }
+    #about {
+      max-width: 1200px; margin: 0 auto; padding: 80px 5%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1.1rem; font-size: 0.975rem; }
+    .about-text .hi { font-weight: 600; color: var(--ink); }
+    .about-tagline {
+      margin-top: 1.5rem; padding: 1rem 1.25rem;
+      background: var(--white); border-left: 3px solid var(--accent);
+      border-radius: 0 var(--r) var(--r) 0;
+      font-style: italic; color: var(--muted); font-size: 0.92rem;
+    }
+    .about-info { margin-top: 1.5rem; display: grid; gap: 0.65rem; }
+    .about-info-item { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.875rem; }
+    .about-info-item .lbl { font-weight: 600; color: var(--ink); min-width: 80px; }
+    .about-info-item .val { color: var(--muted); }
+    .about-info-item a { color: var(--accent); }
+    .about-info-item a:hover { text-decoration: underline; }
+    .about-img { width: 100%; border-radius: var(--rl); object-fit: cover; aspect-ratio: 4/5; }
+
+    /* ════════════════════════════
+       SKILLS — light paper
+    ════════════════════════════ */
+    #skills { background: var(--paper); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.2rem; }
+    .skill-cat {
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--rl); padding: 1.35rem;
+      transition: box-shadow var(--tr), transform var(--tr);
+    }
+    .skill-cat:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateY(-2px); }
+    .skill-cat-title {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;
+    }
+    .skill-cat-title::before { content: ''; display: block; width: 16px; height: 2px; background: var(--accent); border-radius: 2px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-tag { padding: 3px 11px; border-radius: 100px; font-size: 0.78rem; font-weight: 500; border: 1px solid var(--border); color: var(--ink); background: var(--paper); }
+    .skill-tag.p { background: rgba(192,98,42,0.08); border-color: rgba(192,98,42,0.22); color: var(--accent); }
+    .skill-legend { display: flex; gap: 1.5rem; margin-top: 1.5rem; font-size: 0.77rem; color: var(--muted); }
+    .skill-legend span { display: flex; align-items: center; gap: 5px; }
+    .skill-legend .dot { width: 7px; height: 7px; border-radius: 50%; }
+    .skill-legend .dot.p { background: var(--accent); }
+    .skill-legend .dot.f { background: var(--border); }
+
+    /* ════════════════════════════
+       PROJECTS — dark
+    ════════════════════════════ */
+    #projects-wrap { background: var(--dark); }
+    #projects { max-width: 1200px; margin: 0 auto; padding: 80px 5%; }
+
+    .featured-project {
+      background: var(--dark-card); border: 1px solid var(--dark-border);
+      border-radius: var(--rl); padding: 2.5rem; margin-bottom: 2rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;
+      position: relative; overflow: hidden;
+      transition: border-color var(--tr);
+    }
+    .featured-project:hover { border-color: rgba(192,98,42,0.28); }
+    .featured-project::after {
+      content: ''; position: absolute; top: -90px; right: -90px;
+      width: 300px; height: 300px; background: var(--accent);
+      border-radius: 50%; opacity: 0.03;
+    }
+    .featured-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.67rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent-lit); background: rgba(192,98,42,0.1);
+      border: 1px solid rgba(192,98,42,0.2); padding: 4px 10px; border-radius: 100px; margin-bottom: 1rem;
+    }
+    .featured-project h3 {
+      font-family: var(--fd); font-size: 1.9rem; letter-spacing: -0.02em;
+      margin-bottom: 0.75rem; color: var(--white);
+    }
+    .featured-project p { color: var(--dark-muted); font-size: 0.915rem; margin-bottom: 1.25rem; line-height: 1.78; }
+
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-bottom: 1.25rem; }
+    .tech-badge {
+      padding: 3px 10px; border-radius: 100px; font-size: 0.73rem; font-weight: 600;
+      background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .tech-badge.l { background: rgba(0,0,0,0.04); color: var(--muted); border-color: var(--border); }
+
+    .featured-img { border-radius: var(--r); width: 100%; aspect-ratio: 16/9; object-fit: cover; opacity: 0.72; }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem; }
+    .project-card {
+      background: var(--dark-card); border: 1px solid var(--dark-border);
+      border-radius: var(--rl); overflow: hidden;
+      transition: transform var(--tr), border-color var(--tr), box-shadow var(--tr);
+    }
+    .project-card:hover { transform: translateY(-4px); border-color: rgba(192,98,42,0.28); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+    .project-card-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #251d13; }
+    .project-card-body { padding: 1.2rem; }
+    .project-card h3 { font-family: var(--fd); font-size: 1.05rem; margin-bottom: 0.4rem; color: var(--white); }
+    .project-card p { font-size: 0.84rem; color: var(--dark-muted); margin-bottom: 1rem; line-height: 1.68; }
+    .project-card-footer { display: flex; align-items: center; padding-top: 0.75rem; border-top: 1px solid var(--dark-border); }
+    .project-links { display: flex; gap: 0.5rem; }
+    .project-link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.78rem; font-weight: 600; color: var(--accent-lit); transition: opacity var(--tr); }
+    .project-link:hover { opacity: 0.65; }
+    .proj-sep { color: var(--dark-border); margin: 0 2px; }
+
+    /* ════════════════════════════
+       CONTACT — light cream
+    ════════════════════════════ */
+    #contact-wrap { background: var(--cream); }
+    #contact { max-width: 1200px; margin: 0 auto; padding: 80px 5%; display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+
+    .contact-info-block { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-card {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--rl); padding: 1.1rem;
+      transition: box-shadow var(--tr);
+    }
+    .contact-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .contact-icon {
+      width: 38px; height: 38px; border-radius: var(--r);
+      background: var(--accent-dim); display: flex; align-items: center; justify-content: center;
+      color: var(--accent); flex-shrink: 0;
+    }
+    .contact-card-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
+    .contact-card-value { font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+    .contact-card-value a { color: var(--accent); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 0.95rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.95rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label { font-size: 0.78rem; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
+    .form-group input, .form-group textarea {
+      font-family: var(--fb); font-size: 0.875rem; padding: 0.68rem 0.95rem;
+      border: 1px solid var(--border); border-radius: var(--r);
+      background: var(--white); color: var(--ink); resize: vertical; transition: border-color var(--tr);
+    }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(192,98,42,0.1); }
+    .form-group textarea { min-height: 130px; }
+    .form-note { font-size: 0.75rem; color: var(--muted); }
+
+    /* ════════════════════════════
+       FOOTER — dark
+    ════════════════════════════ */
+    footer {
+      background: var(--dark); border-top: 1px solid var(--dark-border);
+      padding: 2.5rem 5%; text-align: center;
+    }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
+    .footer-links a { font-size: 0.82rem; color: var(--dark-muted); transition: color var(--tr); }
+    .footer-links a:hover { color: var(--accent-lit); }
+    footer p { font-size: 0.78rem; color: #4a3f34; }
+    footer strong { color: var(--dark-muted); }
+
+    /* ════════════════════════════
+       ANIMATIONS
+    ════════════════════════════ */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ════════════════════════════
+       MOBILE
+    ════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; position: fixed; top: 64px; left: 0; right: 0;
+        background: var(--dark); border-bottom: 1px solid var(--dark-border);
+        flex-direction: column; padding: 1.5rem 5%; gap: 1.25rem;
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .nav-social { display: none; }
+
+      #home { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
+      .hero-sub { max-width: 100%; }
+      .hero-cta { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-image-wrap { order: -1; }
+      .hero-img-frame { width: 220px; height: 270px; }
+
+      #about { grid-template-columns: 1fr; gap: 2rem; }
+      .about-img { aspect-ratio: 3/2; }
+
+      .featured-project { grid-template-columns: 1fr; }
+      #contact { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-    <nav id="navbar" class="fixed w-full z-50 nav-transition py-6 px-6 lg:px-20">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold tracking-tighter">
-                ESTER<span class="text-accent">.</span>
-            </a>
-            
-            <div class="hidden lg:flex space-x-8 text-sm font-semibold uppercase tracking-widest">
-                <a href="#home" class="hover:text-accent transition">Home</a>
-                <a href="#about" class="hover:text-accent transition">About</a>
-                <a href="#skills" class="hover:text-accent transition">Skills</a>
-                <a href="#projects" class="hover:text-accent transition">Projects</a>
-                <a href="#contact" class="hover:text-accent transition">Contact</a>
-            </div>
+<!-- ═══ NAV (dark) ═══ -->
+<nav role="navigation" aria-label="Navigasi utama">
+  <a href="#home" class="nav-logo">Ester<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about-wrap">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects-wrap">Projects</a></li>
+    <li><a href="#contact-wrap">Kontak</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://github.com/esternumbre" target="_blank" rel="noopener noreferrer" aria-label="GitHub Ester Numbre">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+    </a>
+    <a href="https://linkedin.com/in/esternumbre" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Ester Numbre">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Buka menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-            <button class="lg:hidden text-accent">
-                <i data-lucide="menu"></i>
-            </button>
+<main>
+
+<!-- ═══ HERO (dark) ═══ -->
+<div id="home-wrap">
+  <section id="home" aria-label="Halaman utama">
+    <div>
+      <span class="hero-label">Junior Web Developer & Designer</span>
+      <h1 class="hero-title">
+        Halo, saya<br>
+        <span class="italic">Ester Numbre</span>
+      </h1>
+      <p class="hero-sub">
+        Membangun solusi digital responsif dari Jayapura, Papua — menggabungkan kode, kreativitas, dan identitas lokal.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact-wrap" class="btn btn-primary">Hubungi Saya</a>
+        <a href="#projects-wrap" class="btn btn-ghost">Lihat Karya</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">3+</div><div class="stat-lbl">Proyek selesai</div></div>
+        <div><div class="stat-num">2</div><div class="stat-lbl">Bidang keahlian</div></div>
+        <div><div class="stat-num">∞</div><div class="stat-lbl">Semangat belajar</div></div>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap">
+      <div class="hero-img-frame">
+        <img
+          src="https://esternumbre.github.io/images/Profile2.jpeg"
+          alt="Foto profil Ester Numbre, Junior Web Developer dan Graphic Designer dari Jayapura, Papua"
+          width="300" height="370" loading="eager" />
+        <div class="hero-badge">
+          <div class="badge-dot" aria-hidden="true"></div>
+          <span>Open to work · Jayapura, Papua</span>
         </div>
-    </nav>
+      </div>
+    </div>
+  </section>
+</div>
 
-    <section id="home" class="min-h-screen flex items-center pt-20 px-6 lg:px-20 overflow-hidden">
-        <div class="container mx-auto grid lg:grid-cols-2 gap-10 items-center">
-            <div data-aos="fade-right" data-aos-duration="1000">
-                <span class="text-accent font-bold tracking-[0.3em] uppercase mb-4 block">Hii!</span>
-                <h1 class="text-6xl lg:text-8xl font-extrabold leading-none mb-4">
-                    Saya Ester<br> <span class="text-accent">Numbre</span>
-                </h1>
-                <p class="text-xl lg:text-2xl font-light text-gray-400 mb-10">
-                    Junior Web Developer & Graphic Designer
-                </p>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="btn-primary">Hubungi Saya</a>
-                    <a href="#projects" class="btn-outline">Pekerjaan saya</a>
-                </div>
-            </div>
-
-            <div class="relative flex justify-center lg:justify-end" data-aos="fade-left" data-aos-duration="1000">
-                <div class="w-80 h-80 lg:w-[500px] lg:h-[600px] bg-yellow-400 rounded-3xl rotate-3 absolute -z-10 opacity-10"></div>
-                <img src="images/Profile2.jpeg" 
-                     alt="Ester Numbre" 
-                     class="w-80 lg:w-[450px] rounded-2xl grayscale hover:grayscale-0 transition duration-500 object-cover">
-            </div>
+<!-- ═══ ABOUT (light cream) ═══ -->
+<div id="about-wrap">
+  <div id="about">
+    <div>
+      <span class="section-label">Tentang Saya</span>
+      <h2 class="section-title">Coding meets<br><em>creativity</em></h2>
+      <div class="section-divider" aria-hidden="true"></div>
+      <div class="about-text">
+        <p>Saya adalah <span class="hi">Junior Web Developer & Graphic Designer</span> berlatar belakang Sistem Informasi, berfokus pada pembangunan website responsif menggunakan HTML, CSS, dan JavaScript.</p>
+        <p>Melalui proyek unggulan saya, <span class="hi">Afro Noken</span>, saya mengintegrasikan desain identitas visual dengan pengembangan web untuk mengangkat produk lokal Papua ke ranah digital. Kombinasi coding, desain, dan eksplorasi AI adalah keunikan yang saya tawarkan.</p>
+      </div>
+      <div class="about-info" role="list">
+        <div class="about-info-item" role="listitem"><span class="lbl">Nama</span><span class="val">Ester Numbre</span></div>
+        <div class="about-info-item" role="listitem"><span class="lbl">Lokasi</span><span class="val">Kota Jayapura, Papua</span></div>
+        <div class="about-info-item" role="listitem">
+          <span class="lbl">Email</span>
+          <span class="val"><a href="mailto:zeravina00@gmail.com">zeravina00@gmail.com</a></span>
         </div>
-    </section>
-
-    <section id="about" class="py-24 px-6 lg:px-20">
-        <div class="container mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-up">
-                <img src="images/Profile.png" 
-                     alt="About Me" class="rounded-2xl shadow-2xl border-b-8 border-accent">
-            </div>
-            <div data-aos="fade-up" data-aos-delay="200">
-                <h2 class="text-5xl font-bold mb-8">Siapa Saya</h2>
-                <p class="text-gray-400 mb-8 leading-relaxed">
-                    Saya adalah seorang Junior Web Developer dan Graphic Designer dengan latar belakang Sistem Informasi yang berfokus pada pembangunan solusi digital responsif menggunakan HTML, CSS, dan JavaScript. Melalui proyek utama saya, Afro Noken, saya mengintegrasikan keahlian desain identitas visual dengan pengembangan web untuk mengangkat potensi produk lokal melalui sentuhan teknologi modern. Saya berkomitmen mengombinasikan kode, kreativitas, dan eksplorasi AI untuk menciptakan dampak nyata bagi komunitas.
-                </p>
-                <p class="text-gray-400 mb-8 leading-relaxed">
-                    Motto : “Bermimpi besar (Aksi - Input - Output), berinovasi tanpa henti, dan tetap rendah hati dalam melayani”
-                </p>
-                
-                
-                <ul class="space-y-4 mb-10">
-                    <li class="flex gap-4"><span class="font-bold w-32">Nama:</span> <span class="text-gray-400">Ester Numbre</span></li>
-                    <li class="flex gap-4"><span class="font-bold w-32">Alamat:</span> <span class="text-gray-400">Kota Jayapura, Papua</span></li>
-                    <li class="flex gap-4"><span class="font-bold w-32">Email:</span> <span class="text-accent">zeravina00@email.com</span></li>
-                    <li class="flex gap-4"><span class="font-bold w-32">Contact:</span> <span class="text-gray-400">+62 812-4779-7865-</span></li>
-                </ul>
-
-                <button class="btn-primary">Download CV</button>
-            </div>
+        <div class="about-info-item" role="listitem">
+          <span class="lbl">Telepon</span>
+          <span class="val"><a href="tel:+6281247797865">+62 812-4779-7865</a></span>
         </div>
-    </section>
+      </div>
+    </div>
+    <div>
+      <img src="images/Profile4.png"
+           alt="Ester Numbre sedang bekerja"
+           class="about-img" loading="lazy" />
+    </div>
+  </div>
+</div>
 
-    <section id="skills" class="py-24 px-6 lg:px-20 bg-[#0d0d0d]">
-        <div class="container mx-auto">
-            <h2 class="text-5xl font-bold mb-16 text-center">My Skills</h2>
-            <div class="grid md:grid-cols-2 gap-x-16 gap-y-10">
-                <div data-aos="fade-right">
-                    <div class="flex justify-between mb-2">
-                        <span class="font-bold">PHP</span><span class="text-accent">50%</span>
-                    </div>
-                    <div class="skill-progress"><div class="skill-bar" style="width: 50%"></div></div>
-                </div>
-                <div data-aos="fade-right">
-                    <div class="flex justify-between mb-2">
-                        <span class="font-bold">Laravel</span><span class="text-accent">50%</span>
-                    </div>
-                    <div class="skill-progress"><div class="skill-bar" style="width: 50%"></div></div>
-                </div>
-                <div data-aos="fade-left">
-                    <div class="flex justify-between mb-2">
-                        <span class="font-bold">JavaScript</span><span class="text-accent">55%</span>
-                    </div>
-                    <div class="skill-progress"><div class="skill-bar" style="width: 55%"></div></div>
-                </div>
-                <div data-aos="fade-left">
-                    <div class="flex justify-between mb-2">
-                        <span class="font-bold">HTML5</span><span class="text-accent">65%</span>
-                    </div>
-                    <div class="skill-progress"><div class="skill-bar" style="width: 65%"></div></div>
-                </div>
-                <div data-aos="fade-left">
-                    <div class="flex justify-between mb-2">
-                        <span class="font-bold">Canva</span><span class="text-accent">75%</span>
-                    </div>
-                    <div class="skill-progress"><div class="skill-bar" style="width: 75%"></div></div>
-                </div>
-            </div>
+<!-- ═══ SKILLS (light paper) ═══ -->
+<section id="skills" aria-label="Keahlian">
+  <span class="section-label">Kemampuan</span>
+  <h2 class="section-title">Skills & Tools</h2>
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <div class="skills-grid fade-in">
+    <div class="skill-cat">
+      <div class="skill-cat-title">Frontend</div>
+      <div class="skill-tags">
+        <span class="skill-tag p">HTML5</span>
+        <span class="skill-tag p">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Responsive Design</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-title">Design Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag p">Canva</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Visual Identity</span>
+        <span class="skill-tag">Branding</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-title">Backend</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">Laravel</span>
+        <span class="skill-tag">MySQL</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-title">Tools & Lainnya</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">AI Tools</span>
+      </div>
+    </div>
+  </div>
+  <div class="skill-legend">
+    <span><span class="dot p" aria-hidden="true"></span> Proficient (sudah dipakai di proyek)</span>
+    <span><span class="dot f" aria-hidden="true"></span> Familiar (sedang dipelajari)</span>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS (dark) ═══ -->
+<div id="projects-wrap">
+  <section id="projects" aria-label="Portofolio proyek">
+    <span class="section-label on-dark">Karya</span>
+    <h2 class="section-title on-dark">Projects</h2>
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <div class="featured-project fade-in" aria-label="Featured project Afro Noken">
+      <div>
+        <span class="featured-badge">★ Featured Project</span>
+        <h3>Afro Noken</h3>
+        <p>Platform digital untuk mengangkat produk lokal Papua melalui identitas visual yang kuat dan website responsif. Menggabungkan branding tradisional dengan teknologi web modern untuk komunitas pengrajin Noken.</p>
+        <div class="tech-stack">
+          <span class="tech-badge">HTML5</span>
+          <span class="tech-badge">CSS3</span>
+          <span class="tech-badge">JavaScript</span>
+          <span class="tech-badge">Canva</span>
+          <span class="tech-badge">Visual Identity</span>
         </div>
-    </section>
-
-    <section id="projects" class="py-24 px-6 lg:px-20">
-        <div class="container mx-auto">
-            <h2 class="text-5xl font-bold mb-16 text-center">Projects</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="project-card aspect-video group" data-aos="zoom-in">
-                    <img src="images/Project/Project 1.png">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-center items-center text-center p-6">
-                        <h4 class="text-2xl font-bold text-accent mb-2">Website One-Page</h4>
-                        <i data-lucide="external-link" class="text-white"></i>
-
-                    </div>
-                </div>
-                <div class="project-card aspect-video group" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="images/Project/Project 2.png">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-center items-center text-center p-6">
-                        <h4 class="text-2xl font-bold text-accent mb-2">Personal Website</h4>
-                        <p class="text-sm mb-4"></p>
-                        <i data-lucide="external-link" class="text-white" href="https://esternumbre.github.io/Afro-Noken/"></i>
-                        
-                    </div>
-                <div class="project-card aspect-video group" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="...">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-center items-center text-center p-6">
-                        <h4 class="text-2xl font-bold text-accent mb-2">UI Design Project</h4>
-                        <p class="text-sm mb-4">Web Design</p>
-                        <i data-lucide="external-link" class="text-white"></i>
-                    </div>
-                </div>
-            </div>
+        <div style="display:flex;gap:0.7rem;flex-wrap:wrap;">
+          <a href="https://esternumbre.github.io/Afro-Noken/" class="btn btn-primary" style="font-size:0.82rem;padding:0.55rem 1.1rem;">↗ Live Demo</a>
+          <a href="https://github.com/esternumbre" class="btn btn-ghost" style="font-size:0.82rem;padding:0.55rem 1.1rem;">GitHub →</a>
         </div>
-    </section>
+      </div>
+      <div>
+        <img src="images/Project/Project 1.png"
+             alt="Screenshot website Afro Noken"
+             class="featured-img" loading="lazy" />
+      </div>
+    </div>
 
-    <section id="contact" class="py-24 px-6 lg:px-20 bg-[#0d0d0d]">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="text-5xl font-bold mb-16 text-center">Hubungi Saya</h2>
-            <div class="glass p-10 rounded-3xl border border-white/5">
-                <form class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <input type="text" placeholder="Your Name" class="w-full p-4 rounded-xl">
-                        <input type="email" placeholder="Your Email" class="w-full p-4 rounded-xl">
-                    </div>
-                    <textarea rows="6" placeholder="Message" class="w-full p-4 rounded-xl"></textarea>
-                    <button type="submit" class="btn-primary w-full md:w-auto">Kirim Pesan</button>
-                </form>
+    <div class="projects-grid">
+      <article class="project-card fade-in">
+        <img src="images/Project/Project 1.png"
+             alt="Screenshot proyek Website One-Page"
+             class="project-card-img" loading="lazy" />
+        <div class="project-card-body">
+          <h3>Website One-Page</h3>
+          <p>Landing page responsif dengan layout modern dan animasi CSS. Dibangun dengan pendekatan mobile-first untuk keperluan portofolio.</p>
+          <div class="tech-stack" style="margin-bottom:0;"><span class="tech-badge">HTML5</span><span class="tech-badge">CSS3</span><span class="tech-badge">JS</span></div>
+          <div class="project-card-footer">
+            <div class="project-links">
+              <a href="https://esternumbre.github.io/Afro-Noken/" class="project-link">↗ Live Demo</a>
+              <span class="proj-sep">·</span>
+              <a href="https://github.com/esternumbre" class="project-link">GitHub</a>
             </div>
+          </div>
         </div>
-    </section>
+      </article>
 
-    <footer class="py-12 border-t border-white/5 text-center">
-        <div class="container mx-auto px-6">
-            <h3 class="text-2xl font-bold mb-6 italic">E S T E R<span class="text-accent">.</span></h3>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://www.linkedin.com/in/devina-esther-5a0071294/" class="text-gray-400 hover:text-accent transition"><i data-lucide="linkedin"></i></a>
-                <a href="https://github.com/esternumbre" class="text-gray-400 hover:text-accent transition"><i data-lucide="github"></i></a>
-                <a href="https://www.instagram.com/esther_devina?igsh=MWU0eXAxc3RkenU2aw==" class="text-gray-400 hover:text-accent transition"><i data-lucide="instagram"></i></a>
+      <article class="project-card fade-in">
+        <img src="https://esternumbre.github.io/images/Project/Project 2.png"
+             alt="Screenshot proyek Personal Website"
+             class="project-card-img" loading="lazy" />
+        <div class="project-card-body">
+          <h3>Personal Website</h3>
+          <p>Website portofolio dengan prinsip minimalis, berfokus pada keterbacaan dan navigasi one-page yang smooth.</p>
+          <div class="tech-stack" style="margin-bottom:0;"><span class="tech-badge">HTML5</span><span class="tech-badge">CSS3</span><span class="tech-badge">GitHub Pages</span></div>
+          <div class="project-card-footer">
+            <div class="project-links">
+              <a href="https://esternumbre.github.io" class="project-link">↗ Live Demo</a>
+              <span class="proj-sep">·</span>
+              <a href="https://github.com/esternumbre" class="project-link">GitHub</a>
             </div>
-            <p class="text-gray-500 text-sm">
-                &copy; 2026 Ester Numbre - Junior Web Developer
-            </p>
+          </div>
         </div>
-    </footer>
+      </article>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            once: true,
-            offset: 100,
+      <article class="project-card fade-in">
+        <div class="project-card-img" style="display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;color:#4a3f34;padding:2rem;">
+            <div style="font-size:1.6rem;margin-bottom:0.4rem;opacity:0.35;">✦</div>
+            <p style="font-size:0.76rem;">Screenshot segera ditambahkan</p>
+          </div>
+        </div>
+        <div class="project-card-body">
+          <h3>UI Design Project</h3>
+          <p>Desain antarmuka pengguna untuk aplikasi mobile dengan fokus pada pengalaman pengguna yang intuitif dan estetika visual konsisten.</p>
+          <div class="tech-stack" style="margin-bottom:0;"><span class="tech-badge">Figma</span><span class="tech-badge">Canva</span><span class="tech-badge">UI/UX</span></div>
+          <div class="project-card-footer">
+            <div class="project-links"><a href="#" class="project-link">↗ Preview</a></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ CONTACT (light cream) ═══ -->
+<div id="contact-wrap">
+  <div id="contact">
+    <div>
+      <span class="section-label">Kontak</span>
+      <h2 class="section-title">Mari Bekerja<br><em>Sama</em></h2>
+      <div class="section-divider" aria-hidden="true"></div>
+      <p style="color:var(--muted);margin-bottom:1.75rem;font-size:0.925rem;">
+        Terbuka untuk proyek freelance, kolaborasi, atau peluang kerja. Jangan ragu untuk menghubungi!
+      </p>
+      <div class="contact-info-block">
+        <div class="contact-card">
+          <div class="contact-icon" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value"><a href="mailto:zeravina00@gmail.com">zeravina00@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15z"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label">Telepon / WhatsApp</div>
+            <div class="contact-card-value"><a href="tel:+6281247797865">+62 812-4779-7865</a></div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label">GitHub</div>
+            <div class="contact-card-value"><a href="https://github.com/esternumbre" target="_blank" rel="noopener noreferrer">github.com/esternumbre</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <!--
+        SETUP FORMSPREE (5 menit, GRATIS):
+        1. Buka formspree.io → Sign Up
+        2. New Form → salin endpoint URL
+        3. Ganti YOUR_FORM_ID di bawah
+      -->
+      <form class="contact-form" action="https://formspree.io/f/mqegznzg" method="POST" id="contactForm" aria-label="Form kirim pesan">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" name="name" placeholder="Ester Numbre" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Anda</label>
+            <input type="email" id="email" name="email" placeholder="zeravina00@gmail.com" required autocomplete="email" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subjek</label>
+          <input type="text" id="subject" name="subject" placeholder="Kolaborasi proyek / Info lainnya" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Pesan</label>
+          <textarea id="message" name="message" placeholder="Ceritakan proyek atau pertanyaan Anda..." required></textarea>
+        </div>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true" />
+        <input type="hidden" name="_subject" value="Pesan baru dari Portfolio Ester Numbre" />
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Kirim Pesan →</button>
+          <span class="form-note" id="formStatus" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ═══ FOOTER (dark) ═══ -->
+<footer role="contentinfo">
+  <div class="footer-links">
+    <a href="https://github.com/esternumbre" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://linkedin.com/in/esternumbre" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="mailto:zeravina00@gmail.com">Email</a>
+  </div>
+  <p>© 2026 <strong>Ester Numbre</strong>· Jayapura, Papua</p>
+</footer>
+
+<script>
+  // Hamburger menu
+  const ham = document.getElementById('hamburger');
+  const navEl = document.getElementById('navLinks');
+  ham.addEventListener('click', () => {
+    const open = navEl.classList.toggle('open');
+    ham.setAttribute('aria-expanded', open);
+  });
+  navEl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navEl.classList.remove('open');
+    ham.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll-triggered fade-in
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Active nav link
+  const secs = document.querySelectorAll('[id]');
+  const anchors = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+    anchors.forEach(a => {
+      const href = a.getAttribute('href').replace('#', '');
+      a.classList.toggle('active', href === cur);
+    });
+  }, { passive: true });
+
+  // Form submit with Formspree
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  const btn = document.getElementById('submitBtn');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.textContent = 'Mengirim...'; btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST', body: new FormData(form),
+          headers: { Accept: 'application/json' }
         });
-
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-solid');
-                navbar.classList.remove('py-6');
-                navbar.classList.add('py-4');
-            } else {
-                navbar.classList.remove('nav-solid');
-                navbar.classList.add('py-6');
-                navbar.classList.remove('py-4');
-            }
-        });
-    </script>
+        if (res.ok) {
+          status.textContent = '✅ Pesan terkirim! Saya akan segera membalas.';
+          status.style.color = '#4ade80'; form.reset();
+        } else { throw new Error(); }
+      } catch {
+        status.textContent = '⚠️ Gagal. Email ke ester.numbre@gmail.com';
+        status.style.color = 'var(--accent)';
+      } finally { btn.textContent = 'Kirim Pesan →'; btn.disabled = false; }
+    });
+  }
+</script>
 </body>
 </html>
